@@ -1,9 +1,13 @@
 const player = document.querySelector('.player');
 const background = document.querySelector('.background');
+const pegaData = new Date();
+
+let score = pegaData.getSeconds;
 
 let isJumping = false;
 let position = 0;
 
+// Define qual tecla sera pressionada para saltar
 function keyMap(event) {
     if (event.keyCode == 32) {
         if (!isJumping) {
@@ -12,6 +16,7 @@ function keyMap(event) {
     }
 }
 
+// Define os atributos do salto, altura, tempo de animacao...
 function jump() {
     isJumping = true;
     let timeAnimation = 20
@@ -36,6 +41,7 @@ function jump() {
     }, timeAnimation);
 }
 
+// Gera os cactus de forma aleatoria e adiciona a mecanica de contato.
 function createCactus() {
     const cactus = document.createElement('div');
     let cactusPosition = 1000;
